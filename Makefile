@@ -1,13 +1,15 @@
 NAME = spooooky_rush
 
 SRC =	main.c\
-		src/spooooky_do.c
+		src/spooooky_do.c\
+		src/spooooky_errors.c\
+		src/spooooky_init.c
 
 OBJ = $(SRC:.cpp=.o)
 
 CC = clang
 
-#FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra
 
 SANITIZE = -fsanitize=address -g3
 
@@ -18,7 +20,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 		$(MAKE) -C ./ft_printf
 		cp ft_printf/libftprintf.a .
-		$(CC) $(FLAGS) $(SRC) $(INC) libftprintf.a $(SANITIZE) -o $(NAME)
+		$(CC) $(FLAGS) $(SRC) $(SANITIZE) $(INC) libftprintf.a  -o $(NAME)
 
 clean:
 	$(MAKE) clean -C ./ft_printf
