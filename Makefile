@@ -1,6 +1,7 @@
 NAME = spooooky_rush
 
-SRC =	main.c
+SRC =	main.c\
+		src/spooooky_do.c
 
 OBJ = $(SRC:.cpp=.o)
 

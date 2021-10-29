@@ -1,6 +1,7 @@
 NAME	= libft.a
 
 SRCS	=	ft_strlen.c\
+			ft_arraybilen.c\
 			ft_strlcpy.c\
 			ft_strlcat.c\
 			ft_strncmp.c\
