@@ -1,0 +1,2 @@
+-Retocar el spooooky_logic: -Que no detecte los 4 de dentro + no pillaba los 4 de la izquierda.
+							-Meter todos los 1 y 4 en la estructura options.

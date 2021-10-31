@@ -6,7 +6,7 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 11:27:44 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/29 18:26:06 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 14:29:55 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,17 @@ int	main(int a, char **argv)
 	if (ft_hand_errors(&map_v))
 		return (ft_putstr("Los humanos han ganado\n"));
 	map_v = ft_init(map_v);
-	ft_basic_logic(&map_v);
-	//Show map
-	int	i;
-	int	k;
-
-	i = 0;
-	while (i < 6)
-	{
-		k = 0;
-		while (k < 6)
-		{
-			if (map_v.map[i][k] != '0')
-				write(1, &map_v.map[i][k], 1);
-			else
-				write(1, " ", 1);
-			write(1, " ", 1);
-			k++;
-		}
-		write(1, "\n", 1);
-		i++;
-	}
+	map_v = ft_init_map(map_v);
+	//ft_basic_logic(&map_v);
+	//ft_options_logic(&map_v);
+	if (ft_force_logic(&map_v))
+		return (ft_putstr("Los humanos han ganado\n"));
+	else
+		ft_put_map(map_v);
+	return (0);
+}
 	/*
-	i = 0;
+	int i = 0;
 	while (i < 4)
 	{
 		ft_printf("%i = %s\n", i, map_v.options[i].col1);
@@ -61,4 +49,3 @@ int	main(int a, char **argv)
 		i++;
 	}
 	*/
-}

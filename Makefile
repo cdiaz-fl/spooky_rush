@@ -3,7 +3,16 @@ NAME = spooooky_rush
 SRC =	main.c\
 		src/spooooky_do.c\
 		src/spooooky_errors.c\
-		src/spooooky_init.c
+		src/spooooky_init.c\
+		src/spooooky_logic.c\
+		src/spooooky_logic_2.c\
+		src/spooooky_logic_3.c\
+		src/spooooky_logic_col1.c\
+		src/spooooky_logic_col2.c\
+		src/spooooky_logic_col3.c\
+		src/spooooky_logic_col4.c\
+		src/spooooky_checker.c\
+		src/spooooky_put.c
 
 OBJ = $(SRC:.cpp=.o)
 
