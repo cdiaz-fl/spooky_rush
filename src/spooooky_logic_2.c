@@ -6,12 +6,13 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 18:26:53 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 13:50:43 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 16:32:43 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/spooooky_lib.h"
 
+/*
 t_map	*check_options(t_map *map_v, int i, int k)
 {
 	if (k == 1)
@@ -72,3 +73,4 @@ void	ft_options_logic(t_map	*map_v)
 		i++;
 	}
 }
+*/

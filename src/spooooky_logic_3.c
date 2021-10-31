@@ -6,45 +6,55 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 18:26:53 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 15:23:41 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 19:27:05 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/spooooky_lib.h"
 
-void	ft_force_logic_line1(t_map	*map_v)
+int	ft_paste(t_map	*map_v, char *paste, int i, int j)
 {
-	if (ft_strlen(map_v->options[1].col1) > 1)
-		map_v->map[1][1] = map_v->options[1].col1[map_v->index.i1_1];
-	if (ft_strlen(map_v->options[1].col2) > 1)
-		map_v->map[1][2] = map_v->options[1].col2[map_v->index.i1_2];
-	if (ft_strlen(map_v->options[1].col3) > 1)
-		map_v->map[1][3] = map_v->options[1].col3[map_v->index.i1_3];
-	if (ft_strlen(map_v->options[1].col4) > 1 )
-		map_v->map[1][4] = map_v->options[1].col4[map_v->index.i1_4];
+	int	k;
+	static int	count;
+
+	k = -1;
+	while (++k < 4)
+	{
+		map_v->map[i][j] = paste[k];
+		j++;
+	}
+	//ft_put_map(map_v);
+	return (ft_check_rows_left(map_v));
 }
 
 int	ft_force_logic(t_map	*map_v)
 {
 	int	i;
+	int	j;
+	int	k;
+	int	l;
 
-	map_v = ft_init_index(map_v);
-	while (ft_check_rows_left(map_v))
+	i = -1;
+	while (++i < 24)
 	{
-		i = 0;
-		if (i == 0)
-			ft_force_logic_line1(map_v);
-		if (map_v->index.i1_1 == 4 && map_v->index.i1_2 == 4
-			&& map_v->index.i1_3 == 4 && map_v->index.i1_4 == 4)
-		break ;
-		/*
-		if (i == 1)
-			ft_force_logic_line2(map_v);
-		if (i == 2)
-			ft_force_logic_line3(map_v);
-		if (i == 3)
-			ft_force_logic_line4(map_v);
-		*/
+		if (ft_paste(map_v, map_v->opt[i], 1, 1))
+			return (0);
+		j = -1;
+		while (++j < 24)
+		{
+			if (ft_paste(map_v, map_v->opt[j], 2, 1))
+				return (0);
+			k = -1;
+			while (++k < 24)
+			{
+				if (ft_paste(map_v, map_v->opt[k], 3, 1))
+					return (0);
+				l = -1;
+				while (++l < 24)
+					if (ft_paste(map_v, map_v->opt[l], 4, 1))
+						return (0);
+			}
+		}
 	}
-	return (0);
+	return (1);
 }

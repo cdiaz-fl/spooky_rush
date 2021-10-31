@@ -6,12 +6,13 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 18:26:53 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 13:17:35 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 16:34:56 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/spooooky_lib.h"
 
+/*
 t_map	*ft_save(t_map *map_v, int i, int k, int x)
 {
 	if (k == 1)
@@ -102,3 +103,4 @@ void	ft_basic_logic(t_map *map_v)
 		i++;
 	}
 }
+*/
