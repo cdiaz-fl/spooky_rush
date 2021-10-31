@@ -40,7 +40,8 @@ SRCS	=	ft_strlen.c\
 			ft_itoa_unsint.c\
 			ft_str_tolower.c\
 			ft_strcmp.c\
-			ft_putstr.c
+			ft_putstr.c\
+			ft_freetab.c
 
 SRCS_1	=	ft_lstnew.c\
 			ft_lstadd_front.c\

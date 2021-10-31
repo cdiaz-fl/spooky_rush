@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spooooky_put.c                                     :+:      :+:    :+:   */
+/*   ft_freetab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/31 12:48:25 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 21:13:05 by aamorin-         ###   ########.fr       */
+/*   Created: 2021/10/31 20:27:08 by aamorin-          #+#    #+#             */
+/*   Updated: 2021/10/31 20:39:07 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/spooooky_lib.h"
+#include "libft.h"
 
-//Put map in strout
-void	ft_put_map(t_map	*map_v)
+int	ft_freetab(char **arraybi)
 {
-	int		i;
-	int		k;
+	int	i;
 
 	i = 0;
-	while (i < 6)
+	while (arraybi[i])
 	{
-		k = 0;
-		while (k < 6)
-		{
-			if (map_v->map[i][k] != '0')
-				write(1, &map_v->map[i][k], 1);
-			else
-				write(1, " ", 1);
-			if (k != 5)
-				write(1, " ", 1);
-			k++;
-		}
-		write(1, "\n", 1);
+		free(arraybi[i]);
 		i++;
 	}
+	free(arraybi);
+	return (1);
 }

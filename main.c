@@ -6,7 +6,7 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 11:27:44 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 14:29:55 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 21:09:28 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,31 +21,19 @@ int	main(int a, char **argv)
 	map_v.split = ft_split(argv[1], ' ');
 	if (ft_arraybilen(map_v.split) != 16)
 	{
-		free (map_v.split);
+		ft_freetab(map_v.split);
 		return (ft_putstr("Algún zombi se ha despistado\n"));
 	}
 	if (!(ft_do_malloc_col(&map_v)) || !(ft_do_malloc_map(&map_v)))
 		return (ft_putstr("Algún zombi se ha despistado\n"));
 	if (ft_hand_errors(&map_v))
-		return (ft_putstr("Los humanos han ganado\n"));
-	map_v = ft_init(map_v);
+		return (ft_putstr("Los humanos han ganado\n") && ft_free_all(&map_v, 1));
 	map_v = ft_init_map(map_v);
-	//ft_basic_logic(&map_v);
-	//ft_options_logic(&map_v);
-	if (ft_force_logic(&map_v))
-		return (ft_putstr("Los humanos han ganado\n"));
-	else
-		ft_put_map(map_v);
+	ft_init_optional_split(&map_v);
+	if (ft_force_logic(&map_v, -1, -1, -1))
+		return (ft_putstr("Los humanos han ganado\n") && ft_free_all(&map_v, 2));
+	ft_putstr("Los humanos han perdido\n");
+	ft_put_map(&map_v);
+	ft_free_all(&map_v, 2);
 	return (0);
 }
-	/*
-	int i = 0;
-	while (i < 4)
-	{
-		ft_printf("%i = %s\n", i, map_v.options[i].col1);
-		ft_printf("%i = %s\n", i, map_v.options[i].col2);
-		ft_printf("%i = %s\n", i, map_v.options[i].col3);
-		ft_printf("%i = %s\n", i, map_v.options[i].col4);
-		i++;
-	}
-	*/

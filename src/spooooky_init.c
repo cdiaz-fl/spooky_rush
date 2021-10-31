@@ -6,30 +6,31 @@
 /*   By: aamorin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:55:55 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/10/31 17:49:25 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/10/31 21:11:02 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/spooooky_lib.h"
 
-t_map	*ft_init_index(t_map *map_v)
+t_map	ft_init_map(t_map map_v)
 {
-	map_v->index.i1_1 = 0;
-	map_v->index.i1_2 = 0;
-	map_v->index.i1_3 = 0;
-	map_v->index.i1_4 = 0;
-	map_v->index.i2_1 = 0;
-	map_v->index.i2_2 = 0;
-	map_v->index.i2_3 = 0;
-	map_v->index.i2_4 = 0;
-	map_v->index.i3_1 = 0;
-	map_v->index.i3_2 = 0;
-	map_v->index.i3_3 = 0;
-	map_v->index.i3_4 = 0;
-	map_v->index.i4_1 = 0;
-	map_v->index.i4_2 = 0;
-	map_v->index.i4_3 = 0;
-	map_v->index.i4_4 = 0;
+	int		i;
+	int		k;
+	char	x;
+
+	i = 1;
+	while (i < 5)
+	{
+		k = 1;
+		x = '1';
+		while (k < 5)
+		{
+			map_v.map[i][k] = '1';
+			k++;
+			x++;
+		}
+		i++;
+	}
 	return (map_v);
 }
 
@@ -75,27 +76,5 @@ t_map	*ft_init_optional_split(t_map	*map_v)
 	}
 	map_v->opt[i] = NULL;
 	map_v = ft_init_optional_split_2(map_v);
-	return (map_v);
-}
-
-t_map	ft_init_map(t_map map_v)
-{
-	int		i;
-	int		k;
-	char	x;
-
-	i = 1;
-	while (i < 5)
-	{
-		k = 1;
-		x = '1';
-		while (k < 5)
-		{
-			map_v.map[i][k] = '1';
-			k++;
-			x++;
-		}
-		i++;
-	}
 	return (map_v);
 }
